@@ -3,7 +3,7 @@ replicaCount: 1
 image:
   repository: dattc/k8s-dev-supporter
   pullPolicy: IfNotPresent
-  tag: "0.1.4"
+  tag: "0.1.6"
 
 nameOverride: "go-through-the-storm"
 fullnameOverride: "go-through-the-storm"
