@@ -1,0 +1,15 @@
+{
+	"short_name": "Go Through the Storm",
+	"name": "Go Through the Storm",
+	"icons": [
+		{
+			"src": "/apachestorm.svg",
+			"type": "image/svg+xml",
+			"sizes": "192x192"
+		}
+	],
+	"start_url": "/",
+	"background_color": "#ffffff",
+	"theme_color": "#000000",
+	"display": "standalone"
+}

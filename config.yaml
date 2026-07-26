@@ -1,0 +1,19 @@
+auth:
+  users:
+  - group: admin
+    password: $2a$12$qX0LSv.ZdDO/REJgMCIGneh6nP5oUUwaR7QwIHr6qHsWv1cQDG5nG
+    username: admin
+  editable_files:
+    enabled: true
+    patterns:
+    - ^.*\.profile$
+kube:
+  kubeconfig_path: /home/dattc/.kube/config
+namespace:
+  allowed:
+  - cicd
+  - datastore
+  - monitoring
+server:
+  mode: debug
+  port: 6120

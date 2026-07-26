@@ -1,0 +1,81 @@
+replicaCount: 1
+
+image:
+  repository: dattc/k8s-dev-supporter
+  pullPolicy: IfNotPresent
+  tag: "0.1.4"
+
+nameOverride: "go-through-the-storm"
+fullnameOverride: "go-through-the-storm"
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+
+
+service:
+  type: ClusterIP
+  port: 6120
+
+ingress:
+  enabled: true
+  className: "traefik"
+  annotations:
+    kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: gtts.dev.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls: []
+
+
+resources:
+  limits:
+    cpu: 3
+    memory: 128Mi
+  requests:
+    cpu: 3
+    memory: 128Mi
+
+livenessProbe:
+  httpGet:
+    path: /api/v1/healthcheck
+    port: 6120
+readinessProbe:
+  httpGet:
+    path: /api/v1/healthcheck
+    port: 6120
+
+volumes: []
+volumeMounts: []
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+config:
+  auth:
+    users:
+    - group: admin
+      password: $2a$12$qX0LSv.ZdDO/REJgMCIGneh6nP5oUUwaR7QwIHr6qHsWv1cQDG5nG
+      username: admin
+    editable_files:
+      enabled: true
+      patterns:
+      - ^.*\.profile$
+  kube:
+    kubeconfig_path: /home/dattc/.kube/config
+  namespace:
+    allowed:
+    - cicd
+    - datastore
+    - monitoring
+  server:
+    mode: debug
+    port: 6120
