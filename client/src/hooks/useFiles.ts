@@ -140,7 +140,7 @@ export function useFiles({
   }, [namespace, podName, containerName]);
 
   useEffect(() => {
-    if (isResettingRef.current && currentPath !== "/home") {
+    if (isResettingRef.current && currentPath !== "/") {
       return;
     }
     isResettingRef.current = false;

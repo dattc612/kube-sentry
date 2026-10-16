@@ -4,18 +4,7 @@ export interface NamespaceItem {
   age: string;
 }
 
-export interface NamespacesResponse {
-  total: number;
-  limit: number;
-  data: NamespaceItem[];
-}
-
-export interface ContainerInfo {
-  name: string;
-  image: string;
-  restarts: number;
-  ready: boolean;
-}
+export type NamespacesResponse = NamespaceItem[];
 
 export interface ContainerInfo {
   name: string;
@@ -23,16 +12,10 @@ export interface ContainerInfo {
   restarts: number;
   ready: boolean;
   files?: ContainerFile[];
-}
-
-export interface ContainerItem {
-  name: string;
-  image: string;
-  restarts: number;
-  ready: boolean;
   cpuUsage?: string;
   memoryUsage?: string;
 }
+
 export interface PodItem {
   id: string;
   name: string;
@@ -46,15 +29,15 @@ export interface PodItem {
   labels?: Record<string, string>;
   annotations?: Record<string, string>;
   conditions?: { type: string; status: string; lastTransitionTime?: string }[];
-  containers: ContainerItem[];
+  containers: ContainerInfo[];
 }
+
 export type PodStatus =
   | "Running"
   | "Pending"
   | "CrashLoopBackOff"
-  | "Failed"
-  | "Succeeded"
-  | "Unknown";
+  | "Completed"
+  | "Failed";
 
 export interface ContainerFile {
   name: string;

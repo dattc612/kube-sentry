@@ -217,16 +217,27 @@ func (p *podController) RunJob(c *gin.Context) {
 // GET /api/v1/namespaces
 func (p *podController) GetNamespaces(c *gin.Context) {
 	ctx := c.Request.Context()
-	nsList, err := p.kubeClient.CoreV1().Namespaces().List(ctx, metav1.ListOptions{})
+
+	nsList, err := p.kubeClient.CoreV1().
+		Namespaces().
+		List(ctx, metav1.ListOptions{})
 	if err != nil {
-		p.logger.ErrorContext(ctx, "failed to list namespaces from kubernetes", slog.Any("error", err))
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to list namespaces: " + err.Error()})
+		p.logger.ErrorContext(
+			ctx,
+			"failed to list namespaces from kubernetes",
+			slog.Any("error", err),
+		)
+		c.JSON(http.StatusInternalServerError, gin.H{
+			"error": "Failed to list namespaces: " + err.Error(),
+		})
 		return
 	}
 
-	var items []NamespaceItem
+	items := make([]NamespaceItem, 0, len(nsList.Items))
+
 	for _, ns := range nsList.Items {
-		if len(p.allowedNamespaces) > 0 && !slices.Contains(p.allowedNamespaces, ns.Name) {
+		if len(p.allowedNamespaces) > 0 &&
+			!slices.Contains(p.allowedNamespaces, ns.Name) {
 			continue
 		}
 
@@ -237,10 +248,7 @@ func (p *podController) GetNamespaces(c *gin.Context) {
 		})
 	}
 
-	c.JSON(http.StatusOK, gin.H{
-		"total": len(items),
-		"data":  items,
-	})
+	c.JSON(http.StatusOK, items)
 }
 
 // GET /api/v1/pods
@@ -488,7 +496,6 @@ func (p *podController) downloader(c *gin.Context, namespace, pod, container str
 		Stdout: c.Writer,
 		Stderr: &stderr,
 	})
-
 	if err != nil {
 		return fmt.Errorf("%v: %s", err, stderr.String())
 	}

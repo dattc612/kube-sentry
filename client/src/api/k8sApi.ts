@@ -17,26 +17,26 @@ export const k8sApi = {
     return response.data;
   },
 
-  getResourceYaml: async (
+  getResourceJSON: async (
     resourceType: string,
     namespace: string,
     name: string,
   ) => {
-    const response = await api.get<{ yaml: string }>(
-      `/${resourceType}/${namespace}/${name}/yaml`,
+    const response = await api.get<{ json: string }>(
+      `/${resourceType}/${namespace}/${name}/json`,
     );
-    return response.data.yaml;
+    return response.data;
   },
 
-  updateResourceYaml: async (
+  updateResourceJSON: async (
     resourceType: string,
     namespace: string,
     name: string,
-    yamlContent: string,
+    resourceData: Record<string, unknown>,
   ) => {
     const response = await api.put(
-      `/${resourceType}/${namespace}/${name}/yaml`,
-      { yaml: yamlContent },
+      `/${resourceType}/${namespace}/${name}/json`,
+      resourceData,
     );
     return response.data;
   },

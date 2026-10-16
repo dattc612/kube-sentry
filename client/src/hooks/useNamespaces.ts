@@ -14,7 +14,7 @@ export function useNamespaces() {
         setLoading(true);
         const response = await namespaceApi.getNamespaces();
 
-        const list = response.data || [];
+        const list = response;
         setNamespaces(list);
       } catch (err: any) {
         setError(err.message);

@@ -19,6 +19,28 @@ const (
 	ActionContainerFileWrite    = "container:file:write"
 	ActionContainerFileRead     = "container:file:read"
 	ActionContainerFileDownload = "container:file:download"
+
+	ActionDeploymentList       = "deployment:list"
+	ActionDeploymentJsonRead   = "deployment:json:read"
+	ActionDeploymentJsonUpdate = "deployment:json:update"
+	ActionDeploymentDelete     = "deployment:delete"
+
+	ActionServiceList     = "service:list"
+	ActionServiceJsonRead = "service:json:read"
+	ActionServiceDelete   = "service:delete"
+
+	ActionConfigMapList       = "configmap:list"
+	ActionConfigMapJsonRead   = "configmap:json:read"
+	ActionConfigMapJsonUpdate = "configmap:json:update"
+	ActionConfigMapDelete     = "configmap:delete"
+
+	ActionSecretList       = "secret:list"
+	ActionSecretJsonRead   = "secret:json:read"
+	ActionSecretJsonUpdate = "secret:json:update"
+	ActionSecretDelete     = "secret:delete"
+
+	ActionNodeList     = "node:list"
+	ActionNodeJsonRead = "node:json:read"
 )
 
 const (
@@ -47,11 +69,31 @@ var ActionRolePermissions = map[string][]string{
 	ActionExecutionLogsRead:   RolesAllUsers,
 	ActionPodList:             RolesAllUsers,
 
+	ActionDeploymentList: RolesAllUsers,
+	ActionServiceList:    RolesAllUsers,
+	ActionConfigMapList:  RolesAllUsers,
+	ActionSecretList:     RolesAllUsers,
+	ActionNodeList:       RolesAllUsers,
+
 	ActionPodLogsRead:           RolesDevPlus,
 	ActionContainerJobsList:     RolesDevPlus,
 	ActionContainerFilesList:    RolesDevPlus,
 	ActionContainerFileRead:     RolesDevPlus,
 	ActionContainerFileDownload: RolesDevPlus,
+
+	ActionDeploymentJsonRead: RolesDevPlus,
+	ActionServiceJsonRead:    RolesDevPlus,
+	ActionConfigMapJsonRead:  RolesDevPlus,
+	ActionSecretJsonRead:     RolesDevPlus,
+	ActionNodeJsonRead:       RolesDevPlus,
+
+	ActionDeploymentJsonUpdate: RolesDevPlus,
+	ActionDeploymentDelete:     RolesDevPlus,
+	ActionServiceDelete:        RolesDevPlus,
+	ActionConfigMapJsonUpdate:  RolesDevPlus,
+	ActionConfigMapDelete:      RolesDevPlus,
+	ActionSecretJsonUpdate:     RolesDevPlus,
+	ActionSecretDelete:         RolesDevPlus,
 
 	ActionAutomationRun:      RolesOpsPlus,
 	ActionAutomationWebhook:  append(RolesOpsPlus, RoleSystem, RoleWebhook),

@@ -4484,3 +4484,277 @@ time=2026-10-16T23:51:04.887+07:00 level=INFO msg="configuring authentication mi
 time=2026-10-16T23:51:04.887+07:00 level=DEBUG msg="Worker started" worker_id=2
 time=2026-10-16T23:51:04.887+07:00 level=DEBUG msg="Worker started" worker_id=1
 time=2026-10-16T23:51:04.887+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T00:22:42.464+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-cainjector-bc7b698c5-c5f6f container=cert-manager-cainjector path=/home error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"262803725b7026c57105e852532fc5f1379cff5cc4749353cf9567677e5bac80\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:22:42.468+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-cainjector-bc7b698c5-c5f6f container=cert-manager-cainjector path=/ error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"f49308366ad2921d9ddeb106fef0bce6e792898b5b0ea3102c00e772df4641c4\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:22:42.569+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-cainjector-bc7b698c5-c5f6f container=cert-manager-cainjector path=/home error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"9cdcb7bd23a0d234e4492d0566348ed38168baf8c0cd46ac7ca2e60c9f0fa16c\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:26:58.157+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-cainjector-bc7b698c5-c5f6f container=cert-manager-cainjector path=/home error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"ad66a0fe23d9e382c29069e9ecf2f8a5b4d0633d71e6e342547a32c01383b555\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:26:58.189+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-cainjector-bc7b698c5-c5f6f container=cert-manager-cainjector path=/home error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"18309732855d168b772e36bb8b2fd1bbdaee1fd95a31f8ebafec551319a7ac92\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:26:58.361+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-cainjector-bc7b698c5-c5f6f container=cert-manager-cainjector path=/ error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"a79b464002799265936e1cd460408998d03edcc3feb88b31049d6770ecb0cf4d\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:27:20.465+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-webhook-86d9f7f89d-d5sgb container=cert-manager-webhook path=/ error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"4fdb809cce484bd7717bc8e0b2efecb0f2144a8aeaa9a6a8d4948a1451ac61de\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:28:05.261+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-5697c7c4c8-nnfsv container=cert-manager-controller path=/home error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"e4721e205c967ac3b31b526fa4b4b46abe243040608385fe7b396f71e2e042c5\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:28:05.361+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-5697c7c4c8-nnfsv container=cert-manager-controller path=/home error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"f35f1c51dfcf4930838d8c42901d4416211afc6a0d3874282ff5a8a6085f3da9\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:28:05.362+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-5697c7c4c8-nnfsv container=cert-manager-controller path=/ error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"57d005e0d241999abb2f7ba46f76997c4e364b5f132e8e76b4bf472cbdce61eb\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:28:15.761+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-5697c7c4c8-nnfsv container=cert-manager-controller path=/home error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"661e29c3ff851f2021ab5d3df5e28135370d806c9dad3361e25254d6344be091\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:28:15.761+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-5697c7c4c8-nnfsv container=cert-manager-controller path=/home error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"0fcb60ff43ca42202a1d9d38fb8acd618e06463c5d215927dd05e85df5917299\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:28:15.778+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-5697c7c4c8-nnfsv container=cert-manager-controller path=/ error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"0b61e7731a0b17d88012e7d42afbe085e34356a90315bbe428462d3a226a4067\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:28:54.429+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cloudflared-j5tbp container=cloudflared path=/home error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"6140c8720aa16611def881e3ca63bdfa0a427176f309a2d072c32cd4c45213ff\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:28:54.432+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cloudflared-j5tbp container=cloudflared path=/home error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"fc44b9c76ec7b0771dde6c31bc9b11105af8c28eb79a5dc64d82e3170c711434\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:28:54.434+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cloudflared-j5tbp container=cloudflared path=/ error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"85f050601aad1d2a52437e1b2ccb3123ab7d939fdbde6cea115aefaf2703db51\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T00:30:06.341+07:00 level=INFO msg="starting job execution" job_name="Check CPU and Memory Usage" namespace=operation pod=gitlab-webservice-default-854f4b79bd-xvkwq container=webservice
+time=2026-10-17T00:30:06.341+07:00 level=DEBUG msg="running job step" job_name="Check CPU and Memory Usage" step_index=1 step_name="Calculate Memory Usage vs Limit"
+time=2026-10-17T00:30:06.449+07:00 level=DEBUG msg="running job step" job_name="Check CPU and Memory Usage" step_index=2 step_name="Calculate CPU Usage and Limits"
+time=2026-10-17T00:30:06.551+07:00 level=INFO msg="job executed successfully" job_name="Check CPU and Memory Usage"
+time=2026-10-17T00:52:01.419+07:00 level=INFO msg="Stopping automation engine and draining job queue"
+time=2026-10-17T00:52:01.419+07:00 level=DEBUG msg="Worker stopped" worker_id=2
+time=2026-10-17T00:52:01.419+07:00 level=DEBUG msg="Worker stopped" worker_id=3
+time=2026-10-17T00:52:01.419+07:00 level=DEBUG msg="Worker stopped" worker_id=1
+time=2026-10-17T00:52:01.419+07:00 level=INFO msg="Automation engine stopped"
+time=2026-10-17T00:52:05.390+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T00:52:05.390+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T00:52:05.390+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T00:52:05.392+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T00:52:05.392+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T00:52:05.392+07:00 level=INFO msg="Generated JWT Secret: 46b779896897ea50647a80235f7728b9329e82c315be25fb959b02507f36afb4"
+time=2026-10-17T00:52:05.395+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T00:52:05.395+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T00:52:05.395+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T00:52:05.395+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T00:52:05.395+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T00:52:05.395+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:04:24.586+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:04:24.586+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:04:24.586+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:04:24.587+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:04:24.587+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:04:24.587+07:00 level=INFO msg="Generated JWT Secret: d143c3f8b1e55a206f41d4737f6638854b39d330bb23b7c513b2dfa71db4cd0b"
+time=2026-10-17T01:04:24.593+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:04:24.593+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:04:24.593+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:04:24.593+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:04:24.593+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:04:24.593+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:09:28.225+07:00 level=INFO msg="Stopping automation engine and draining job queue"
+time=2026-10-17T01:09:28.225+07:00 level=DEBUG msg="Worker stopped" worker_id=1
+time=2026-10-17T01:09:28.225+07:00 level=DEBUG msg="Worker stopped" worker_id=3
+time=2026-10-17T01:09:28.225+07:00 level=DEBUG msg="Worker stopped" worker_id=2
+time=2026-10-17T01:09:28.225+07:00 level=INFO msg="Automation engine stopped"
+time=2026-10-17T01:13:28.133+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:13:28.134+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:13:28.134+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:13:28.138+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:13:28.138+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:13:28.138+07:00 level=INFO msg="Generated JWT Secret: b8ee8b3eeafae5d73fa42ac27b284895cb6e483682a5ef1bf4831f8a44de20ea"
+time=2026-10-17T01:13:28.141+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:13:28.141+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:13:28.141+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:13:28.141+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:13:28.141+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:13:28.141+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:18:09.814+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:18:09.814+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:18:09.814+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:18:09.815+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:18:09.815+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:18:09.815+07:00 level=INFO msg="Generated JWT Secret: 295a072af57bf9d2520b1eb0caf52c2146693e6cb9e5ca2e371af052edcf5089"
+time=2026-10-17T01:18:09.817+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:18:09.817+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:18:09.817+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:18:09.817+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:18:09.817+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:18:09.817+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:21:26.672+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:21:26.673+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:21:26.673+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:21:26.673+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:21:26.673+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:21:26.673+07:00 level=INFO msg="Generated JWT Secret: a5c90c6370bd8a65c7f257dfbb5302259ec4c2a018feec9a970e8dbd7c5094a2"
+time=2026-10-17T01:21:26.676+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:21:26.676+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:21:26.676+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:21:26.676+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:21:26.676+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:21:26.676+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:24:28.430+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:24:28.430+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:24:28.430+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:24:28.430+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:24:28.430+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:24:28.430+07:00 level=INFO msg="Generated JWT Secret: 827abffd1cf2420d88bf6185f1d885c439fbb2cad8092999680ac16badd95ed0"
+time=2026-10-17T01:24:28.433+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:24:28.433+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:24:28.433+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:24:28.433+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:24:28.433+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:24:28.433+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:38:21.749+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:38:21.749+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:38:21.749+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:38:21.749+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:38:21.749+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:38:21.749+07:00 level=INFO msg="Generated JWT Secret: 1891d0ba77ff58c3e6aa5ecab8564335e0e0536ca3a502b5d2c82fc4b62690e9"
+time=2026-10-17T01:38:21.752+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:38:21.752+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:38:21.752+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:38:21.752+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:38:21.752+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:38:21.752+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:38:24.445+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:38:24.446+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:38:24.446+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:38:24.446+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:38:24.446+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:38:24.446+07:00 level=INFO msg="Generated JWT Secret: d7360c32f13e55989331886171ca6647c1616e7f7f2248ad064979d1b9360ff6"
+time=2026-10-17T01:38:24.449+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:38:24.449+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:38:24.449+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:38:24.449+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:38:24.449+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:38:24.449+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:38:27.127+07:00 level=INFO msg="Stopping automation engine and draining job queue"
+time=2026-10-17T01:38:27.127+07:00 level=DEBUG msg="Worker stopped" worker_id=2
+time=2026-10-17T01:38:27.127+07:00 level=DEBUG msg="Worker stopped" worker_id=3
+time=2026-10-17T01:38:27.127+07:00 level=DEBUG msg="Worker stopped" worker_id=1
+time=2026-10-17T01:38:27.127+07:00 level=INFO msg="Automation engine stopped"
+time=2026-10-17T01:38:28.566+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:38:28.566+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:38:28.566+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:38:28.568+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:38:28.568+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:38:28.568+07:00 level=INFO msg="Generated JWT Secret: 7f9b4bcf282be0ecb4972fab4e54da560afba2c99e96ba24247f28576ae74ce8"
+time=2026-10-17T01:38:28.571+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:38:28.571+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:38:28.571+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:38:28.571+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:38:28.571+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:38:28.571+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:47:07.866+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:47:07.867+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:47:07.867+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:47:07.867+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:47:07.867+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:47:07.867+07:00 level=INFO msg="Generated JWT Secret: 74140a99e58074ea148d308758f385b1a4b4eb300300d7681a8c35d6efdab86d"
+time=2026-10-17T01:47:07.869+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:47:07.869+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:47:07.869+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:47:07.869+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:47:07.869+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:47:07.869+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:47:21.517+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:47:21.518+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:47:21.518+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:47:21.518+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:47:21.518+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:47:21.518+07:00 level=INFO msg="Generated JWT Secret: 6b8aac654a26e404b6b41f41873fa0b84eccd73f282689ad653e9a97dfc2e121"
+time=2026-10-17T01:47:21.521+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:47:21.521+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:47:21.521+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:47:21.521+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:47:21.521+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:47:21.521+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:47:33.964+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:47:33.964+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:47:33.964+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:47:33.965+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:47:33.965+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:47:33.965+07:00 level=INFO msg="Generated JWT Secret: f2729b3033fb7665810359daaa0135522664e2e8979ead9eb56713bfdd03bb38"
+time=2026-10-17T01:47:33.968+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:47:33.968+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:47:33.968+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:47:33.968+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:47:33.968+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:47:33.968+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:48:27.258+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:48:27.259+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:48:27.259+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:48:27.259+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:48:27.259+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:48:27.259+07:00 level=INFO msg="Generated JWT Secret: 4a646d46c7026d6f2ae574536cf5799af14151900ad998068937d8807bcdefcd"
+time=2026-10-17T01:48:27.261+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:48:27.261+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:48:27.261+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:48:27.261+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:48:27.261+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:48:27.261+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:48:46.885+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:48:46.885+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:48:46.885+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:48:46.885+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:48:46.885+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:48:46.885+07:00 level=INFO msg="Generated JWT Secret: 5a541f6d35a57234c71aa8adac77d8e8d59fcb2e3fb34515ea77de9060997d50"
+time=2026-10-17T01:48:46.886+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:48:46.886+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:48:46.886+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:48:46.886+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:48:46.886+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:48:46.886+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:54:59.654+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T01:54:59.655+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T01:54:59.655+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T01:54:59.655+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T01:54:59.655+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T01:54:59.655+07:00 level=INFO msg="Generated JWT Secret: 474cd8ddfc1d005c52ee4dd8528784a8cf7776c51bd3c16b096c1736a0c0fd7e"
+time=2026-10-17T01:54:59.659+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T01:54:59.659+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T01:54:59.659+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T01:54:59.659+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T01:54:59.659+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T01:54:59.659+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T01:59:07.839+07:00 level=INFO msg="user logged in successfully" username=dev
+time=2026-10-17T02:09:35.737+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-webhook-86d9f7f89d-d5sgb container=cert-manager-webhook path=/ error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"988d0c0461e983d733b70cc86a3799e89ac6e80d31ffac30404002c512a30973\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T02:38:57.401+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T02:38:57.401+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T02:38:57.402+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T02:38:57.402+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T02:38:57.402+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T02:38:57.402+07:00 level=INFO msg="Generated JWT Secret: fb97a7b9c78875a97161ca90094d49aa9d54ad3e8d97fd539024535d391360a0"
+time=2026-10-17T02:38:57.403+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T02:38:57.403+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T02:38:57.403+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T02:38:57.403+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T02:38:57.403+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T02:38:57.403+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T02:39:00.662+07:00 level=INFO msg="Stopping automation engine and draining job queue"
+time=2026-10-17T02:39:00.662+07:00 level=DEBUG msg="Worker stopped" worker_id=1
+time=2026-10-17T02:39:00.662+07:00 level=DEBUG msg="Worker stopped" worker_id=3
+time=2026-10-17T02:39:00.662+07:00 level=DEBUG msg="Worker stopped" worker_id=2
+time=2026-10-17T02:39:00.662+07:00 level=INFO msg="Automation engine stopped"
+time=2026-10-17T02:39:02.042+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T02:39:02.042+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T02:39:02.042+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T02:39:02.044+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T02:39:02.044+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T02:39:02.044+07:00 level=INFO msg="Generated JWT Secret: 410a30c15afb85a13e071bfd7d6bd1461d7ca40991e13b2eae5897d32646d89d"
+time=2026-10-17T02:39:02.048+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T02:39:02.048+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T02:39:02.048+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T02:39:02.048+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T02:39:02.048+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T02:39:02.048+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T02:43:55.795+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T02:43:55.795+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T02:43:55.795+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T02:43:55.795+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T02:43:55.795+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T02:43:55.795+07:00 level=INFO msg="Generated JWT Secret: bb2ff88ba028798c86a758c05db46194a71ff4cf8fe1d6f04ac962eb3522ccc2"
+time=2026-10-17T02:43:55.798+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T02:43:55.798+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T02:43:55.798+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T02:43:55.798+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T02:43:55.798+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T02:43:55.798+07:00 level=DEBUG msg="Worker started" worker_id=3
+time=2026-10-17T03:02:38.512+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-5697c7c4c8-nnfsv container=cert-manager-controller path=/ error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"cda57c5f729c3784c5c3b9bdaad7fd43b935455b1ffeef3982f133a382c8e0de\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T03:02:39.939+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=cert-manager-5697c7c4c8-nnfsv container=cert-manager-controller path=/ error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"793d63a8b35240db5be18167807c7ac90e60af125557e9db52e3cd9f411fb470\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T03:02:44.209+07:00 level=ERROR msg="failed to list container files" namespace=operation pod=prometheus-kube-state-metrics-6745748d6c-kntmf container=kube-state-metrics path=/ error="Internal error occurred: error executing command in container: failed to exec in container: failed to start exec \"b55fd69f713a4222c34c0e363cbc8827b0332ea61fc66285d7a99e0e6888728e\": OCI runtime exec failed: exec failed: unable to start container process: exec: \"ls\": executable file not found in $PATH: "
+time=2026-10-17T03:03:29.108+07:00 level=INFO msg="http: WriteHeader called with both Transfer-Encoding of \"chunked\" and a Content-Length of 28131"
+time=2026-10-17T03:05:51.545+07:00 level=INFO msg="starting automations database synchronization" total_jobs=2
+time=2026-10-17T03:05:51.546+07:00 level=DEBUG msg="upserted automation job" code=auto_heal name="Auto Heal" type=action
+time=2026-10-17T03:05:51.546+07:00 level=DEBUG msg="upserted automation job" code=dump_java_process name="Dump Java Process" type=action
+time=2026-10-17T03:05:51.546+07:00 level=INFO msg="automations database synchronization completed" synced_jobs=2
+time=2026-10-17T03:05:51.546+07:00 level=INFO msg="database initialized successfully"
+time=2026-10-17T03:05:51.546+07:00 level=INFO msg="Generated JWT Secret: 55270c8934476cb0b9edc80a14571bc9f6ea49297ca75e87c4d38c6a141c742e"
+time=2026-10-17T03:05:51.547+07:00 level=INFO msg="Starting automation engine worker pool" workers=3
+time=2026-10-17T03:05:51.547+07:00 level=INFO msg="Automation engine started" workers=3
+time=2026-10-17T03:05:51.547+07:00 level=INFO msg="configuring authentication middleware" mode=dual
+time=2026-10-17T03:05:51.547+07:00 level=DEBUG msg="Worker started" worker_id=1
+time=2026-10-17T03:05:51.547+07:00 level=DEBUG msg="Worker started" worker_id=2
+time=2026-10-17T03:05:51.547+07:00 level=DEBUG msg="Worker started" worker_id=3
