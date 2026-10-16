@@ -1,0 +1,87 @@
+replicaCount: 1
+
+image:
+  repository: dattc/k8s-dev-supporter
+  pullPolicy: IfNotPresent
+  tag: "0.1.11"
+
+nameOverride: "kube-sentry"
+fullnameOverride: "kube-sentry"
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+service:
+  type: ClusterIP
+  port: 6120
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/whitelist-source-range: 54.65.237.24/32
+  hosts:
+    - host: kube-sentry.vodds.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - kube-sentry.vodds.com
+    secretName: vodds-tls
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 128Mi
+
+livenessProbe:
+  httpGet:
+    path: /api/v1/healthcheck
+    port: 6120
+readinessProbe:
+  httpGet:
+    path: /api/v1/healthcheck
+    port: 6120
+
+volumes: []
+volumeMounts: []
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+config:
+  auth:
+    users:
+    - group: admin
+      password: $2a$12$enwsrQGq9kdQMpCXFzcvE.ByquMI.Zygp/oqrvj0/IGAkP2NLf29O
+      username: admin
+  editableFiles:
+    enabled: true
+    patterns:
+    - ^.*logback\.xml$
+  kube:
+    kubeconfigPath: ""
+  namespace:
+    allowed:
+    - vodds
+  server:
+    mode: debug
+    port: 6120
+  jobs:
+    - jobID: 1
+      jobName: Restart Java Process
+      description: This job will restart java process inside container
+      cmd: ["pkill", "java"]
+      allowedPod:
+        - ^(?!ae).*$

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fluent-bit-config-{{ include "gtts.fullname" . }}
+  labels: 
+    {{- include "gtts.labels" . | nindent 4 }}
+
+data:
+  fluent-bit.conf:
+    {{- toYaml .Values.sidecar.fluentbit.configMap.fluentBit | nindent 4 }}
+  parsers.conf:
+    {{- toYaml .Values.sidecar.fluentbit.configMap.parsers | nindent 4 }}
+  custom.lua:
+    {{- toYaml .Values.sidecar.fluentbit.configMap.customLua | nindent 4 }}

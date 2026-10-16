@@ -1,0 +1,322 @@
+replicaCount: 1
+
+image:
+  repository: dattc/k8s-dev-supporter
+  pullPolicy: IfNotPresent
+  #  stable version: 0.2.6
+  tag: "0.2.18"
+
+nameOverride: "kube-sentry"
+fullnameOverride: "kube-sentry"
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+service:
+  type: ClusterIP
+  port: 6120
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    nginx.ingress.kubernetes.io/whitelist-source-range: 54.65.237.24/32, 54.238.102.39/32
+  hosts:
+    - host: kube-sentry.stagingvodds.net
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+  tls:
+    - hosts:
+        - kube-sentry.stagingvodds.net
+      secretName: stagingvodds-tls
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 128Mi
+  requests:
+    cpu: 50m
+    memory: 128Mi
+
+livenessProbe:
+  httpGet:
+    path: /api/v1/healthcheck
+    port: 6120
+  periodSeconds: 30
+  timeoutSeconds: 5
+  failureThreshold: 5
+readinessProbe:
+  httpGet:
+    path: /api/v1/healthcheck
+    port: 6120
+  periodSeconds: 30
+  timeoutSeconds: 5
+  failureThreshold: 5
+
+sidecar:
+  fluentbit:
+    resources:
+      limits:
+        cpu: 100m
+        memory: 100Mi
+      requests:
+        cpu: 20m
+        memory: 50Mi
+    service:
+      type: ClusterIP
+      port: 2020
+      name: fluentbit-http
+
+    securityContext:
+      allowPrivilegeEscalation: false
+      privileged: false
+      readOnlyRootFilesystem: false
+      runAsNonRoot: false
+    volumeMounts:
+      - name: fluent-bit-state
+        mountPath: /fluent-bit/state
+      - name: fluent-bit-config
+        mountPath: /fluent-bit/etc
+      - name: log-volume
+        mountPath: /opt/gtts/logs
+    repository: 315865776134.dkr.ecr.ap-northeast-1.amazonaws.com/fluentbit
+    tag: "5.0.0-amd64"
+    pullPolicy: Always
+    env:
+      - name: MY_NODE_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: spec.nodeName
+      - name: MY_POD_NAME
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.name
+      - name: MY_POD_NAMESPACE
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: metadata.namespace
+      - name: MY_POD_IP
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: status.podIP
+      - name: MY_POD_SERVICE_ACCOUNT
+        valueFrom:
+          fieldRef:
+            apiVersion: v1
+            fieldPath: spec.serviceAccountName
+    configMap:
+      customLua: |
+      fluentBit: |
+        [SERVICE]
+          Flush                     1
+          Parsers_File              /fluent-bit/etc/parsers.conf
+          HTTP_Server               On
+          HTTP_Listen               0.0.0.0
+          HTTP_Port                 2020
+          Log_Level                 info
+          hot_reload                On
+          storage.path              /fluent-bit/state/flb-storage
+          storage.sync              normal
+          storage.checksum          off
+          storage.backlog.mem_limit 5M
+
+        [INPUT]
+          Name                      tail
+          tag                       main.log
+          Path                      /opt/gtts/logs/*.log
+          Path_Key                  filename
+          DB                        /fluent-bit/state/main.db
+          Mem_Buf_Limit             10MB
+          Buffer_Max_Size           256KB
+          skip_empty_lines          true
+          truncate_long_lines       true
+          Refresh_Interval          5
+          storage.type              filesystem
+        [FILTER]
+          Name                      parser
+          Match_Regex               ^main\.log$
+          Key_Name                  log
+          Parser                    time_extractor
+          Reserve_Data              True
+        [OUTPUT]
+          Name                      loki
+          Match_Regex               ^main\.log$
+          Host                      internal-loki-gateway.stag.jayeson.com.sg
+          Port                      80
+          URI                       /loki/api/v1/push
+          labels                    service=kube-sentry, pod_name=${MY_POD_NAME}, namespace=${MY_POD_NAMESPACE}, pod_ip=${MY_POD_IP}
+          label_keys                $filename
+          remove_keys               kubernetes,stream,time
+          auto_kubernetes_labels    false
+          line_format               json
+          log_level                 warn
+          Drop_Single_Key           raw
+          Retry_Limit               5
+      parsers: |
+        [PARSER]
+          Name                      time_extractor
+          Format                    json
+          Time_Key                  time
+          Time_Format               %Y-%m-%dT%H:%M:%S.%L%z
+          Time_Keep                 true
+          Time_Offset               +0800
+
+volumes:
+  - name: fluent-bit-state
+    emptyDir: {}
+  - name: log-volume
+    emptyDir: {}
+  - name: fluent-bit-config
+    configMap:
+      defaultMode: 420
+      name: fluent-bit-config-kube-sentry
+
+volumeMounts:
+  - name: log-volume
+    mountPath: /opt/gtts/logs
+  - name: data
+    mountPath: /opt/gtts/data
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+persistence:
+  storageClass: "relayer-dump"
+  existingClaim: ""
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 1Gi
+  additionalVolumes: []
+  additionalMounts: []
+
+config:
+  auth:
+    mode: dual
+    local:
+      jwtSecret: b1a56af309bf53893c8f5e76e558a95cab3b01d5f019cff1e9dca011fb06fbad
+      users:
+        - group: admin
+          password: $2a$12$enwsrQGq9kdQMpCXFzcvE.ByquMI.Zygp/oqrvj0/IGAkP2NLf29O
+          username: admin
+          roles:
+            - admin
+        - group: dev
+          password: $2a$12$enwsrQGq9kdQMpCXFzcvE.ByquMI.Zygp/oqrvj0/IGAkP2NLf29O
+          username: dev
+          roles:
+            - developer
+    keycloak:
+      url: https://auth.jayeson.com.sg
+      realm: jayeson-operation
+      clientId: kube-sentry-stag
+      clientSecret: U5XvgTPL4KKQo5vfdW5714Hw4f8zA4Zf
+
+  editableFiles:
+    enabled: true
+    patterns:
+      - ^\/home\/void\/.*\/logback\.xml$
+      - ^\/home\/void\/.*\/conf\/voddsCommon.json$
+      - ^\/home\/void\/.*\/conf\/vodds_.*_config.json$
+
+  kube:
+    kubeconfigPath: ""
+
+  namespace:
+    allowed:
+      - stagingvodds
+
+  server:
+    mode: debug
+    port: 6120
+
+  automationExtraConfigs:
+    - code: auto_heal
+      enabled: true
+      allowedPod:
+        - ^feedgateway.*$
+
+  jobs:
+    - jobID: 1
+      jobName: Restart Java Process
+      description: This job will restart java process inside container
+      steps:
+        - name: Restart Java Process
+          description: This step will restart java process inside container
+          command: ["pkill", "java"]
+      allowedPod:
+        - ^(?!ae).*$
+        - ^(?!am).*$
+        
+    - jobID: 2
+      jobName: List All Processes
+      description: This job will list all running processes inside the container
+      steps:
+        - name: List Processes
+          description: Runs ps aux to list all running processes
+          command: ["ps", "-ef"]
+      allowedPod:
+        - ^(?!ae).*$
+        - ^(?!am).*$
+    - jobID: 3
+      jobName: Check CPU and Memory Usage
+      description: Calculates container memory usage vs limit and CPU resource consumption
+      steps:
+        - name: Calculate Memory Usage vs Limit
+          description: Reads cgroup data to compute container memory usage against configured limits
+          command:
+            - "sh"
+            - "-c"
+            - |
+              if [ -f /sys/fs/cgroup/memory.current ]; then
+                USAGE=$(cat /sys/fs/cgroup/memory.current)
+                LIMIT=$(cat /sys/fs/cgroup/memory.max)
+              else
+                USAGE=$(cat /sys/fs/cgroup/memory/memory.usage_in_bytes 2>/dev/null || echo 0)
+                LIMIT=$(cat /sys/fs/cgroup/memory/memory.limit_in_bytes 2>/dev/null || echo 0)
+              fi
+
+              USAGE_MB=$((USAGE / 1024 / 1024))
+
+              if [ "$LIMIT" = "max" ] || [ "$LIMIT" -gt 100000000000000 2>/dev/null ]; then
+                echo "Memory Usage : ${USAGE_MB} MB (No limit set)"
+              else
+                LIMIT_MB=$((LIMIT / 1024 / 1024))
+                PCT=$((USAGE_MB * 100 / LIMIT_MB))
+                echo "Memory Usage : ${USAGE_MB} MB / ${LIMIT_MB} MB (${PCT}%)"
+              fi
+
+        - name: Calculate CPU Usage and Limits
+          description: Displays CPU core quota limits and current CPU load snapshot
+          command:
+            - "sh"
+            - "-c"
+            - |
+              if [ -f /sys/fs/cgroup/cpu.max ]; then
+                QUOTA=$(awk '{print $1}' /sys/fs/cgroup/cpu.max)
+                PERIOD=$(awk '{print $2}' /sys/fs/cgroup/cpu.max)
+              else
+                QUOTA=$(cat /sys/fs/cgroup/cpu/cpu.cfs_quota_us 2>/dev/null || echo -1)
+                PERIOD=$(cat /sys/fs/cgroup/cpu/cpu.cfs_period_us 2>/dev/null || echo 100000)
+              fi
+
+              if [ "$QUOTA" = "max" ] || [ "$QUOTA" -le 0 ] 2>/dev/null; then
+                echo "Allocated CPU Cores: Unlimited (Host Cores: $(nproc))"
+              else
+                CORES=$(awk "BEGIN {printf \"%.2f\", $QUOTA/$PERIOD}")
+                echo "Allocated CPU Cores: ${CORES} Cores"
+              fi
+      allowedPod:
+        - ^(?!ae).*$
+        - ^(?!am).*$

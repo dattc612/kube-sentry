@@ -1,0 +1,119 @@
+auth:
+  mode: dual
+  local:
+    jwtSecret: b1a56af309bf53893c8f5e76e558a95cab3b01d5f019cff1e9dca011fb06fbad
+    users:
+      - group: admin
+        password: $2a$12$enwsrQGq9kdQMpCXFzcvE.ByquMI.Zygp/oqrvj0/IGAkP2NLf29O
+        username: admin
+        roles:
+          - admin
+      - group: dev
+        password: $2a$12$enwsrQGq9kdQMpCXFzcvE.ByquMI.Zygp/oqrvj0/IGAkP2NLf29O
+        username: dev
+        roles:
+          - developer
+  # keycloak:
+  #   url: https://auth.jayeson.com.sg
+  #   realm: jayeson-operation
+  #   clientId: kube-sentry
+  #   clientSecret: 4Y8PRBb2EQNZWXp65uKfPoyOpOW6NdwO
+
+editableFiles:
+  enabled: true
+  patterns:
+    - ^\/home\/void\/.*\/logback\.xml$
+    - ^\/home\/void\/.*\/conf\/voddsCommon.json$
+    - ^\/home\/void\/.*\/conf\/vodds_.*_config.json$
+
+kube:
+  kubeconfigPath: /home/dattc/.kube/config
+  context: dattc
+namespace:
+  allowed:
+    - operation
+    - monitoring
+
+server:
+  mode: debug
+  port: 6120
+
+automationExtraConfigs:
+  - code: auto_heal
+    enabled: true
+    allowedPod:
+      - ^feedgateway.*$
+    alers:
+      - alertName: KubePodMemoryUnderPressure
+jobs:
+  - jobID: 1
+    jobName: Restart Java Process
+    description: This job will restart java process inside container
+    steps:
+      - name: Restart Java Process
+        description: This step will restart java process inside container
+        command: ["pkill", "java"]
+    allowedPod:
+      - ^(?!ae).*$
+      - ^(?!am).*$
+  - jobID: 2
+    jobName: List All Processes
+    description: This job will list all running processes inside the container
+    steps:
+      - name: List Processes
+        description: Runs ps aux to list all running processes
+        command: ["ps", "-ef"]
+    allowedPod:
+      - ^(?!ae).*$
+      - ^(?!am).*$
+  - jobID: 3
+    jobName: Check CPU and Memory Usage
+    description: Calculates container memory usage vs limit and CPU resource consumption
+    steps:
+      - name: Calculate Memory Usage vs Limit
+        description: Reads cgroup data to compute container memory usage against configured limits
+        command:
+          - "sh"
+          - "-c"
+          - |
+            if [ -f /sys/fs/cgroup/memory.current ]; then
+              USAGE=$(cat /sys/fs/cgroup/memory.current)
+              LIMIT=$(cat /sys/fs/cgroup/memory.max)
+            else
+              USAGE=$(cat /sys/fs/cgroup/memory/memory.usage_in_bytes 2>/dev/null || echo 0)
+              LIMIT=$(cat /sys/fs/cgroup/memory/memory.limit_in_bytes 2>/dev/null || echo 0)
+            fi
+
+            USAGE_MB=$((USAGE / 1024 / 1024))
+
+            if [ "$LIMIT" = "max" ] || [ "$LIMIT" -gt 100000000000000 2>/dev/null ]; then
+              echo "Memory Usage : ${USAGE_MB} MB (No limit set)"
+            else
+              LIMIT_MB=$((LIMIT / 1024 / 1024))
+              PCT=$((USAGE_MB * 100 / LIMIT_MB))
+              echo "Memory Usage : ${USAGE_MB} MB / ${LIMIT_MB} MB (${PCT}%)"
+            fi
+
+      - name: Calculate CPU Usage and Limits
+        description: Displays CPU core quota limits and current CPU load snapshot
+        command:
+          - "sh"
+          - "-c"
+          - |
+            if [ -f /sys/fs/cgroup/cpu.max ]; then
+              QUOTA=$(awk '{print $1}' /sys/fs/cgroup/cpu.max)
+              PERIOD=$(awk '{print $2}' /sys/fs/cgroup/cpu.max)
+            else
+              QUOTA=$(cat /sys/fs/cgroup/cpu/cpu.cfs_quota_us 2>/dev/null || echo -1)
+              PERIOD=$(cat /sys/fs/cgroup/cpu/cpu.cfs_period_us 2>/dev/null || echo 100000)
+            fi
+
+            if [ "$QUOTA" = "max" ] || [ "$QUOTA" -le 0 ] 2>/dev/null; then
+              echo "Allocated CPU Cores: Unlimited (Host Cores: $(nproc))"
+            else
+              CORES=$(awk "BEGIN {printf \"%.2f\", $QUOTA/$PERIOD}")
+              echo "Allocated CPU Cores: ${CORES} Cores"
+            fi
+    allowedPod:
+      - ^(?!ae).*$
+      - ^(?!am).*$

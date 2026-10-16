@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "gtts.fullname" . }}-cm
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "gtts.labels" . | nindent 4 }}
+data:
+  config.yaml: |
+    {{- toYaml .Values.config | nindent 4 }}
